@@ -93,31 +93,30 @@ public class EjerciciosJavaNIvel01 {
         }
     }
 
-    private boolean anagrama(String palabraA, String palabraB) {
-        //pasamos a mayúsculas todas las letras
-        palabraA = palabraA.toUpperCase();
-        palabraB = palabraB.toUpperCase();
-        palabraA = quita(palabraA);
-        palabraB = quita(palabraB);
+    private boolean anagrama(String palabra, String palabra1) {
 
-        boolean anagr = false;
-        if (palabraA.length() == palabraB.length()) {
-            for (int i = 0; i < palabraA.length(); i++) {
+        palabra = palabra.toUpperCase();
+        palabra1 = palabra1.toUpperCase();
+        palabra = quita(palabra);
+        palabra1 = quita(palabra1);
+
+        if (palabra.length() == palabra1.length()) {
+            for (int i = 0; i < palabra.length(); i++) {
                 int a = 0;
-                while (a < palabraB.length() && palabraA.charAt(i) != palabraB.charAt(a)) {
+                while (a < palabra1.length() && palabra.charAt(i) != palabra1.charAt(a)) {
                     a++;
                 }
-                if (a == palabraB.length()) {//la letra no estaba, retorno falso
+                if (a == palabra1.length()) {
                     return false;
-                } else {  //la letra sí que está en B, la voy a eliminar
-                    palabraB = palabraB.substring(0, a) + palabraB.substring(a + 1);
+                } else {  
+                    palabra1 = palabra1.substring(0, a) + palabra1.substring(a + 1);
                 }
             }
-            if (palabraB.length() == 0) {
+            if (palabra1.length() == 0) {
                 return true;
             }
         }
-        return anagr;
+        return false;
     }
 
     private String quita(String frase) {
@@ -163,7 +162,7 @@ public class EjerciciosJavaNIvel01 {
         System.out.println();
 
         System.out.println("Anagrama");
-        System.out.println(ejercicio.anagrama("rkma", "amor"));
+        System.out.println(ejercicio.anagrama("roma", "amor"));
     }
 
 }
