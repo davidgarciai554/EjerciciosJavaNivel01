@@ -94,12 +94,10 @@ public class EjerciciosJavaNIvel01 {
     }
 
     private boolean anagrama(String palabra, String palabra1) {
-
         palabra = palabra.toUpperCase();
         palabra1 = palabra1.toUpperCase();
         palabra = quita(palabra);
         palabra1 = quita(palabra1);
-
         if (palabra.length() == palabra1.length()) {
             for (int i = 0; i < palabra.length(); i++) {
                 int a = 0;
@@ -108,7 +106,7 @@ public class EjerciciosJavaNIvel01 {
                 }
                 if (a == palabra1.length()) {
                     return false;
-                } else {  
+                } else {
                     palabra1 = palabra1.substring(0, a) + palabra1.substring(a + 1);
                 }
             }
@@ -117,6 +115,24 @@ public class EjerciciosJavaNIvel01 {
             }
         }
         return false;
+    }
+
+    public String acronimo(String palabra) {
+        palabra = palabra.toUpperCase();
+        String acronimo = "";
+        String[] prohibidas1 = {"y", "e", "de", "la", "las"};
+        String[] prohibidas2 = {"de", "la"};
+        String[] prohibidas3 = {"las"};
+        String espacio = " ";
+        for (int i = 0; i < palabra.length(); i++) {
+            if (espacio.equals(palabra.charAt(i))) {
+                for (int a = 0; a < prohibidas1.length; a++) {
+                    
+                }
+            }
+        }
+        acronimo = acronimo.toUpperCase();
+        return acronimo;
     }
 
     private String quita(String frase) {
@@ -163,6 +179,8 @@ public class EjerciciosJavaNIvel01 {
 
         System.out.println("Anagrama");
         System.out.println(ejercicio.anagrama("roma", "amor"));
+
+        System.out.println(ejercicio.acronimo("hola que tal"));
     }
 
 }
