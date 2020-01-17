@@ -120,18 +120,34 @@ public class EjerciciosJavaNIvel01 {
     public String acronimo(String palabra) {
         palabra = palabra.toUpperCase();
         String acronimo = "";
-        String[] prohibidas1 = {"y", "e", "de", "la", "las"};
-        String[] prohibidas2 = {"de", "la"};
-        String[] prohibidas3 = {"las"};
-        String espacio = " ";
-        for (int i = 0; i < palabra.length(); i++) {
-            if (espacio.equals(palabra.charAt(i))) {
-                for (int a = 0; a < prohibidas1.length; a++) {
-                    
+        String[] prohibidas = {"Y", "E", "DE", "LA", "LAS"};
+        String espacio = " ", palabraActual = "";
+        acronimo += palabra.charAt(0);
+        int a = 0, j = 0;
+        //Elimina palabras prohibidas
+        while (a < palabra.length()) {
+            while (j < palabra.length() && palabra.charAt(j) != espacio.charAt(0)) {
+                j++;
+            }
+            palabraActual = palabra.substring(a, j);
+            int k = 0;
+            while (k < prohibidas.length) {
+                if (palabraActual.equals(prohibidas[k])) {
+                    palabra = palabra.substring(0, a) + palabra.substring(j+1);
                 }
+                k++;
+            }
+            a = j;
+            a++;
+            j++;
+        }
+        //Saca el acronimo
+        for (int i = 0; i < palabra.length(); i++) {
+            if (palabra.charAt(i) == espacio.charAt(0)) {
+                acronimo += palabra.charAt(i + 1);
             }
         }
-        acronimo = acronimo.toUpperCase();
+        System.out.println(palabra);
         return acronimo;
     }
 
@@ -152,35 +168,34 @@ public class EjerciciosJavaNIvel01 {
 
         EjerciciosJavaNIvel01 ejercicio = new EjerciciosJavaNIvel01();
 
-        System.out.println("Maximos");
-        System.out.println(Arrays.toString(ejercicio.maximos(ejercicio.listaMax)));
-        //Palindromo
-        System.out.println();
-        System.out.println("Isograma");
-        if ((ejercicio.Palindromo("aaa"))) {
-            System.out.println("Es palindromo");
-        } else {
-            System.out.println("No es palindromo");
-        }
-        System.out.println();
-
-        System.out.println("Isograma");
-        if (ejercicio.Isograma("asdfa")) {
-            System.out.println("Es isograma");
-        } else {
-            System.out.println("No es isograma");
-        }
-
-        System.out.println();
-        System.out.println("Calendario");
-        ejercicio.imprimeMes(8);
-        System.out.println();
-        System.out.println();
-
-        System.out.println("Anagrama");
-        System.out.println(ejercicio.anagrama("roma", "amor"));
-
-        System.out.println(ejercicio.acronimo("hola que tal"));
+//        System.out.println("Maximos");
+//        System.out.println(Arrays.toString(ejercicio.maximos(ejercicio.listaMax)));
+//        //Palindromo
+//        System.out.println();
+//        System.out.println("Isograma");
+//        if ((ejercicio.Palindromo("aaa"))) {
+//            System.out.println("Es palindromo");
+//        } else {
+//            System.out.println("No es palindromo");
+//        }
+//        System.out.println();
+//
+//        System.out.println("Isograma");
+//        if (ejercicio.Isograma("asdfa")) {
+//            System.out.println("Es isograma");
+//        } else {
+//            System.out.println("No es isograma");
+//        }
+//
+//        System.out.println();
+//        System.out.println("Calendario");
+//        ejercicio.imprimeMes(8);
+//        System.out.println();
+//        System.out.println();
+//
+//        System.out.println("Anagrama");
+//        System.out.println(ejercicio.anagrama("roma", "amor"));
+        System.out.println(ejercicio.acronimo("Tecnología de la Información y de las Comunicaciones"));
     }
 
 }
