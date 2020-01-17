@@ -125,22 +125,23 @@ public class EjerciciosJavaNIvel01 {
         acronimo += palabra.charAt(0);
         int a = 0, j = 0;
         //Elimina palabras prohibidas
-        while (a < palabra.length()) {
-            while (j < palabra.length() && palabra.charAt(j) != espacio.charAt(0)) {
+        while (j < palabra.length()) {
+            while (j < palabra.length() && palabra.charAt(j) != ' ') {
                 j++;
             }
             palabraActual = palabra.substring(a, j);
             int k = 0;
             while (k < prohibidas.length) {
                 if (palabraActual.equals(prohibidas[k])) {
-                    palabra = palabra.substring(0, a) + palabra.substring(j+1);
+                    palabra = palabra.substring(0, a) + palabra.substring(j + 1);
                 }
                 k++;
             }
             a = j;
-            a++;
             j++;
+            a++;
         }
+        System.out.println(palabra);
         //Saca el acronimo
         for (int i = 0; i < palabra.length(); i++) {
             if (palabra.charAt(i) == espacio.charAt(0)) {
@@ -195,7 +196,7 @@ public class EjerciciosJavaNIvel01 {
 //
 //        System.out.println("Anagrama");
 //        System.out.println(ejercicio.anagrama("roma", "amor"));
-        System.out.println(ejercicio.acronimo("Tecnología de la Información y de las Comunicaciones"));
+        System.out.println(ejercicio.acronimo("tecnologia de la informacion y de las comunicaciones"));
     }
 
 }
