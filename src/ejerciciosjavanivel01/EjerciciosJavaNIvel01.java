@@ -134,13 +134,13 @@ public class EjerciciosJavaNIvel01 {
             while (k < prohibidas.length) {
                 if (palabraActual.equals(prohibidas[k])) {
                     palabra = palabra.substring(0, a) + palabra.substring(j + 1);
-                    j-=palabraActual.length()+1;
+                    j -= palabraActual.length() + 1;
                 }
                 k++;
             }
             j++;
             a = j;
-            
+
         }
         System.out.println(palabra);
         //Saca el acronimo
@@ -152,7 +152,7 @@ public class EjerciciosJavaNIvel01 {
 
         return acronimo;
     }
-
+    
     private String quita(String frase) {
         String auxiliar = "";
         for (int i = 0; i < frase.length(); i++) {
@@ -162,6 +162,38 @@ public class EjerciciosJavaNIvel01 {
         }
         return auxiliar;
     }
+    
+    
+    int[][] arrayDoble = {{1, 10, 2}, {3, 4, 5}, {6, 7, 8}};
+
+    public boolean sudoku(int[][] array) {
+        int[] sudoku = new int[array.length * array.length];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                sudoku[array.length * i + j] = array[i][j];
+            }
+        }
+        Arrays.sort(sudoku);
+        for (int i = 0; i < sudoku.length; i++) {
+            if (sudoku[i] == i + 1) {
+                return false;
+            }
+        }
+        System.out.println(Arrays.toString(sudoku));
+        return true;
+    }
+    int[] arrayPalomero = {4, 3, 3, 3, 4};
+
+    public int palomero(int[] arrayPalom) {
+        for (int i = 0; i < arrayPalom.length; i++) {
+            for (int j = i; j < arrayPalom.length; j++) {
+                if(arrayPalom[i]==arrayPalom[j]) return arrayPalom[i];
+            }
+        }
+        return 0;
+    }
+
+    
 
     /**
      * @param args the command line arguments
@@ -197,7 +229,11 @@ public class EjerciciosJavaNIvel01 {
 //
 //        System.out.println("Anagrama");
 //        System.out.println(ejercicio.anagrama("roma", "amor"));
-        System.out.println(ejercicio.acronimo("tecnologia de la informacion y de las comunicaciones"));
+//        System.out.println(ejercicio.acronimo("tecnologia de la informacion y de las comunicaciones"));
+
+        System.out.println(ejercicio.sudoku(ejercicio.arrayDoble));
+        
+        System.out.println(ejercicio.palomero(ejercicio.arrayPalomero));
     }
 
 }
