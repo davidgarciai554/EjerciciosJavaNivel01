@@ -190,11 +190,11 @@ public class EjerciciosJavaNIvel01 {
         return true;
     }
     
-    int[] arrayPalomero = {4, 3, 3, 3, 4};
+    int[] arrayPalomero = {2, 1, 4, 3, 4};
 
     public int palomero(int[] arrayPalom) {
         for (int i = 0; i < arrayPalom.length; i++) {
-            for (int j = i; j < arrayPalom.length; j++) {
+            for (int j = i+1; j < arrayPalom.length; j++) {
                 // Comparamos todos los valores entre si acortando
                 // y en el momento que se encuentre el primer repetido 
                 // lo devolvemos
