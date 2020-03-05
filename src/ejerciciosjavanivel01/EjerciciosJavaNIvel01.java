@@ -134,12 +134,13 @@ public class EjerciciosJavaNIvel01 {
             while (k < prohibidas.length) {
                 if (palabraActual.equals(prohibidas[k])) {
                     palabra = palabra.substring(0, a) + palabra.substring(j + 1);
+                    j-=palabraActual.length()+1;
                 }
                 k++;
             }
-            a = j;
             j++;
-            a++;
+            a = j;
+            
         }
         System.out.println(palabra);
         //Saca el acronimo
@@ -148,7 +149,7 @@ public class EjerciciosJavaNIvel01 {
                 acronimo += palabra.charAt(i + 1);
             }
         }
-        System.out.println(palabra);
+
         return acronimo;
     }
 
