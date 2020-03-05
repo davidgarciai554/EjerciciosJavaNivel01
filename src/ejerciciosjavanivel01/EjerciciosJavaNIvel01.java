@@ -168,29 +168,40 @@ public class EjerciciosJavaNIvel01 {
 
     public boolean sudoku(int[][] array) {
         int[] sudoku = new int[array.length * array.length];
+        
+        // Transformamos el array doble a uno simple
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
                 sudoku[array.length * i + j] = array[i][j];
             }
         }
-        Arrays.sort(sudoku);
+        
+        Arrays.sort(sudoku);//Ordenamos el array
+        
+        // Aqui comprobamos que esta entre todos los valores 
+        // y comprobamos que esta en el rango 1-9
+        System.out.println(Arrays.toString(sudoku));
         for (int i = 0; i < sudoku.length; i++) {
             if (sudoku[i] == i + 1) {
                 return false;
             }
         }
-        System.out.println(Arrays.toString(sudoku));
+        
         return true;
     }
+    
     int[] arrayPalomero = {4, 3, 3, 3, 4};
 
     public int palomero(int[] arrayPalom) {
         for (int i = 0; i < arrayPalom.length; i++) {
             for (int j = i; j < arrayPalom.length; j++) {
+                // Comparamos todos los valores entre si acortando
+                // y en el momento que se encuentre el primer repetido 
+                // lo devolvemos
                 if(arrayPalom[i]==arrayPalom[j]) return arrayPalom[i];
             }
         }
-        return 0;
+        return 0;//Para que no de error el ejercicio aunque nunca se dara
     }
 
     
